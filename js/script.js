@@ -44,50 +44,9 @@ const teamCards = [
 
 console.log(teamCards)
 
-addCard();
-
-
-//estraggo i dati dalla card singola 
-//appendo i dati nel Dom
-function addCard(){
-  for(let i = 0; i < teamCards.length; i++){
-
-    //inizializzo i contenuti html
-    
-    
-
-    const teamCard = document.createElement('div');
-    teamCard.className = 'team-card';
-    
-    
-    const cardImage = document.createElement('div');
-    cardImage.className = 'card-image';
-    cardImage.innerHTML = `
-    
-    <img
-    src="${teamCards[i].cardImage}"
-    alt="${teamCards[i].cardName}"
-    />
-    
-    `;
-    
-    const cardText = document.createElement('div');
-    cardText.className = 'card-text';
-    cardText.innerHTML = `
-    <h3>${teamCards[i].cardName}</h3>
-    <p>${teamCards[i].cardJob}</p>
-    
-    `;
-    
-    teamCard.append(cardImage);
-    teamCard.append(cardText);
-    cardContainer.append(teamCard);
-      
-    }
-
+for(let i = 0; i < teamCards.length; i++){
+  addCard(teamCards[i]);
 }
-
-
 
 //Aggiunta Card da HTML
 
@@ -122,8 +81,44 @@ const newCard = {
 teamCards.push(newCard);
 console.log(teamCards);
 
-//reset container e aggiunta nuove figure
-cardContainer.innerHTML = ``;
-addCard();
+addCard(newCard);
 
 }); //fine azione btn
+
+
+
+
+//funzione addCard passando array come argomento lo aggiungi a teamCards
+
+function addCard(card){
+
+  //inizializzo i contenuti html
+
+  const teamCard = document.createElement('div');
+  teamCard.className = 'team-card';
+  
+  
+  const cardImage = document.createElement('div');
+  cardImage.className = 'card-image';
+  cardImage.innerHTML = `
+  
+  <img
+  src="${card.cardImage}"
+  alt="${card.cardName}"
+  />
+  
+  `;
+  
+  const cardText = document.createElement('div');
+  cardText.className = 'card-text';
+  cardText.innerHTML = `
+  <h3>${card.cardName}</h3>
+  <p>${card.cardJob}</p>
+  
+  `;
+  
+  teamCard.append(cardImage);
+  teamCard.append(cardText);
+  cardContainer.append(teamCard);
+    
+  }
