@@ -13,6 +13,30 @@ const teamCards = [
     cardImage : 'img/angela-caroll-chief-editor.jpg',
     cardName : 'Angela Caroll',
     cardJob : 'Chief Editor'
+  },
+
+  {
+    cardImage : 'img/angela-lopez-social-media-manager.jpg',
+    cardName : 'Angela Lopez',
+    cardJob : 'Social Media Manager'
+  },
+
+  {
+    cardImage : 'img/barbara-ramos-graphic-designer.jpg',
+    cardName : 'Barbara Ramos',
+    cardJob : 'Designer'
+  },
+
+  {
+    cardImage : 'img/scott-estrada-developer.jpg',
+    cardName : 'Scott Estrada',
+    cardJob : 'Developer'
+  },
+
+  {
+    cardImage : 'img/walter-gordon-office-manager.jpg',
+    cardName : 'Walter Gordon',
+    cardJob : 'Office Manager'
   }
 ]
 
@@ -20,6 +44,13 @@ const teamCards = [
 
 console.log(teamCards)
 
+
+
+
+//estraggo i dati dalla card singola 
+//appendo i dati nel Dom
+
+for(let i = 0; i < teamCards.length; i++){
 
 //inizializzo i contenuti html
 
@@ -34,8 +65,8 @@ cardImage.className = 'card-image';
 cardImage.innerHTML = `
 
 <img
-src="${teamCards[1].cardImage}"
-alt="${teamCards[1].cardName}"
+src="${teamCards[i].cardImage}"
+alt="${teamCards[i].cardName}"
 />
 
 `;
@@ -43,16 +74,14 @@ alt="${teamCards[1].cardName}"
 const cardText = document.createElement('div');
 cardText.className = 'card-text';
 cardText.innerHTML = `
-<h3>${teamCards[1].cardName}</h3>
-<p>${teamCards[1].cardJob}</p>
+<h3>${teamCards[i].cardName}</h3>
+<p>${teamCards[i].cardJob}</p>
 
 `;
 
 teamCard.append(cardImage);
 teamCard.append(cardText);
 cardContainer.append(teamCard);
-
-//estraggo i dati dalla card singola 
-//appendo i dati nel Dom
-
+  
+}
 
